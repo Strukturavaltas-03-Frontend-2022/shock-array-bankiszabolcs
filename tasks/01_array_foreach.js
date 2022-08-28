@@ -39,7 +39,9 @@ function copyArrayElements(names = ['Ali', 'Géza', 'Botond']) {
  * @desc Ha segítség kell, nézd meg a példafüggvényt feljebb.
  */
 const copyFoodArray = (food = ['milk', 'bread', 'apple']) => {
-    // return;
+   const newFood = []
+   food.forEach(item=>newFood.push(item))
+   return newFood
 }
 
 /**
@@ -55,13 +57,13 @@ const copyFoodArray = (food = ['milk', 'bread', 'apple']) => {
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
  */
 const findNamesWithA = (names = ['Bill', 'Anna']) => {
-    // 
+    const namesWithA=[]
     names.forEach( name => {
         if (name.includes('a')) {
             namesWithA.push(name);
         }
     });
-    // 
+    return namesWithA
 }
 
 /**
@@ -74,7 +76,11 @@ const findNamesWithA = (names = ['Bill', 'Anna']) => {
  * @desc a lényeges változás az if feltételben lesz.
  */
 const findBigPrices = (prices=[121, 41, 56, 1245]) => {
-    // 
+    const bigPrices = [];
+    prices.forEach(item=>{
+        if(item>100) bigPrices.push(item)
+    })
+    return bigPrices
 }
 
 /**
@@ -89,9 +95,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * Ugyanezt tudod alkalmazni az árakra is.
  * EXPORTÁLD A FÜGGVÉNYT!
  */
+const findEvens = function (prices=[121, 41, 56, 1245]) {
+    const evenPrices=[]
+    prices.forEach(item=>{
+        if(item%2===0) evenPrices.push(item)
+    })
+    return evenPrices
+  }
 
-
-
+export {findEvens}
 /**
  * 5. feladat
  * @todo Pótold a hiányzó részeket!
@@ -105,9 +117,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * Vigyázz, ez most egy objektumban lesz: e.salary > 100000
  * EXPORTÁLD A FÜGGVÉNYT!
  */
+const findHigherSalariedEmployees = function (employees=[{name: '', salary: 200000}]) {
+    const salary = []
+    employees.forEach(item=>{
+        if(item.salary>300000) salary.push(item)
+    })
+    return salary
+  }
 
-
-
+export {findHigherSalariedEmployees}
 /**
  * 6. feladat
  * @todo Pótold a hiányzó részeket!
@@ -121,8 +139,14 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * @desc annyiban nehezebb az előzőnél, hogy két feltételt kell vizsgálnod.
  * EXPORTÁLD A FÜGGVÉNYT!
  */
-
-
+const findEmployeesFromMarketing=function (employees=[{name: '', salary: 200000, dep: 'marketing'}]) { 
+const marketingArr =[]
+employees.forEach(item=>{
+    if(item.salary>300000 && item.dep==='marketing') marketingArr.push(item) 
+})
+return marketingArr
+}
+export {findEmployeesFromMarketing}
 
 /**
  * 7. feladat
@@ -136,9 +160,15 @@ const findBigPrices = (prices=[121, 41, 56, 1245]) => {
  * Ha szerepel benne a `gmail` részlet akkor gmail-esnek lehet venni.
  * EXPORTÁLD A FÜGGVÉNYT!
  */
+const findGermanMigrants = function(citizens=[{nation: 'German', email: 'franz@gmail.com', city: 'Budapest'}]){
+const germanArr =[]
+citizens.forEach(item=>{
+    if(item.nation ==='German' && item.city ==='Budapest' && item.email.includes('gmail')) germanArr.push(item)
+})
+return germanArr
+}
 
-
-
+export {findGermanMigrants}
 export {
     copyFoodArray,
     findNamesWithA,
